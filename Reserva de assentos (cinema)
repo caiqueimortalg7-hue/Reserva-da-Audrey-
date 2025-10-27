@@ -1,0 +1,43 @@
+# Criando a matriz 5x8 (5 fileiras x 8 assentos)
+# 0 = assento livre | 1 = assento reservado
+sala_de_cinema = [
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+# Função para reservar um assento 
+def reservar(fileira, assento):
+    if sala_de_cinema[fileira][assento] == 0:
+        sala_de_cinema[fileira][assento] = 1
+        print(f"Assento ({fileira+1}, {assento+1}) reservado com sucesso!")
+    else:
+        print(f"Assento ({fileira+1}, {assento+1}) já está reservado.")
+
+# Função para cancelar um assento 
+def cancelar(fileira, assento):
+    if sala_de_cinema[fileira][assento] == 1:
+        sala_de_cinema[fileira][assento] = 0
+        print(f"Reserva do assento ({fileira+1}, {assento+1}) cancelada com sucesso!")
+    else:
+        print(f"Assento ({fileira+1}, {assento+1}) já está livre.")
+
+# Função para exibir o mapa de assentos
+def exibir():
+    print("\nMapa de Assentos (0 = Livre | 1 = Reservado):")
+    for i in range(len(sala_de_cinema)):
+        print(f"Fileira {i+1}: {sala_de_cinema[i]}")
+
+# --- Reservas e Cancelamentos conforme o enunciado ---
+
+reservar(0, 2)
+
+reservar(1, 4)
+
+reservar(3, 6)
+
+cancelar(1, 4)
+
+exibir()
